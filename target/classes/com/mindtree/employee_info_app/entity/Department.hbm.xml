@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 14, 2018 10:33:46 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.mindtree.employee_info_app.entity.Department" table="DEPARTMENT">
+        <id name="dno" type="int">
+            <column name="DNO" />
+            <generator class="assigned" />
+        </id>
+        <property name="deptName" type="java.lang.String">
+            <column name="DEPTNAME" />
+        </property>
+        <set name="employees" table="EMPLOYEE" inverse="false" lazy="true">
+            <key>
+                <column name="DNO" />
+            </key>
+            <one-to-many class="com.mindtree.employee_info_app.entity.Employee" />
+        </set>
+    </class>
+</hibernate-mapping>
